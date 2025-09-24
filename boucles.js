@@ -84,7 +84,19 @@ const prompt = require("prompt-sync")();
 // ● Ignorer les nombres négatifs.
 // ● Afficher la somme des nombres valides.
 
-let numbers = [];
-for (let i = 0; i < 10; i++) {
-  numbers[i] = prompt(`Saisir le nombre ${i + 1}: `);
-}
+// let numbers = [];
+// for (let i = 0; i < 10; i++) {
+//   numbers[i] = Number(prompt(`Saisir le nombre ${i + 1}: `));
+// }
+
+// console.log(numbers);
+
+// let sum = 0;
+// for (let i = 0; i < 10; i++) {
+//   if (numbers[i] < 0) {
+//     continue;
+//   }
+//   sum += numbers[i];
+// }
+
+// console.log(`La somme des nombres positives est: ${sum}`);
