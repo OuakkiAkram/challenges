@@ -8,7 +8,7 @@ const prompt = require("prompt-sync")();
 // const sommeTableau = (tab) => {
 //   let sum = 0;
 //   for (let i = 0; i < tab.length; i++) {
-//     sum = sum + tab[i];
+//     sum += tab[i];
 //   }
 //   return sum;
 // };
@@ -126,7 +126,7 @@ const prompt = require("prompt-sync")();
 // const sommeTableau = (tab) => {
 //   let sum = 0;
 //   for (let i = 0; i < tab.length; i++) {
-//     sum = sum + tab[i];
+//     sum += tab[i];
 //   }
 //   return sum;
 // };
