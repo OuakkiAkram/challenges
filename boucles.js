@@ -100,3 +100,23 @@ const prompt = require("prompt-sync")();
 // }
 
 // console.log(`La somme des nombres positives est: ${sum}`);
+
+// ------------------------------------------ CHALLENGE 8 ----------------------------------------------------------
+
+// Écris un programme qui demande un nombre de lignes et affiche une pyramide d’étoiles.
+// Chaque ligne doit contenir un nombre premier d’étoiles.
+
+// let nbrLignes = parseInt(prompt("Donner un nombre de ligne: "));
+
+// for (let i = 0; i <= 5; i++) {
+//   for (let j = 0; j <= i; j++) {
+//     console.log("*".repeat(j));
+//   }
+// }
+
+// i=0   ======> j=0
+// i=1   ======> j=0  j=1
+// i=2   ======> j=0  j=1  j=2
+// i=3   ======> j=0  j=1  j=2  j=3
+// i=4   ======> j=0  j=1  j=2  j=3  j=4
+// i=5   ======> j=0  j=1  j=2  j=3  j=4  j=5
