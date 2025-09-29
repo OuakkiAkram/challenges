@@ -106,17 +106,29 @@ const prompt = require("prompt-sync")();
 // Écris un programme qui demande un nombre de lignes et affiche une pyramide d’étoiles.
 // Chaque ligne doit contenir un nombre premier d’étoiles.
 
-// let nbrLignes = parseInt(prompt("Donner un nombre de ligne: "));
+let nbrLignes = parseInt(prompt("Donner un nombre de ligne: "));
+let string = "";
 
-// for (let i = 0; i <= 5; i++) {
-//   for (let j = 0; j <= i; j++) {
-//     console.log("*".repeat(j));
-//   }
-// }
+for (let i = 1; i < nbrLignes; i++) {
+  for (let j = 1; j <= nbrLignes - i; j++) {
+    string += " ";
+  }
 
-// i=0   ======> j=0
-// i=1   ======> j=0  j=1
-// i=2   ======> j=0  j=1  j=2
-// i=3   ======> j=0  j=1  j=2  j=3
-// i=4   ======> j=0  j=1  j=2  j=3  j=4
-// i=5   ======> j=0  j=1  j=2  j=3  j=4  j=5
+  for (k = 1; k <= 2 * i - 1; k++) {
+    string += "*";
+  }
+  string += "\n";
+}
+console.log(string);
+
+// nbrLignes = 5
+
+// i=1   ======> (j<=4)  j=1  j=2  j=3  j=4  || (k<=1)  k=1
+
+// i=2   ======> (j<=3)  j=1  j=2  j=3       || (k<=3)  k=1  k=2  k=3
+
+// i=3   ======> (j<=2)  j=1  j=2            || (k<=5)  k=1  k=2  k=3  k=4  k=5
+
+// i=4   ======> (j<=1)  j=1                 || (k<=7)  k=1  k=2  k=3  k=4  k=5  k=6  k=7
+
+// i=5   ======> (j<=0)                      || (k<=9)  k=1  k=2  k=3  k=4  k=5  k=6  k=7  k=8  k=9
