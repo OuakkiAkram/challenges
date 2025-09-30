@@ -161,7 +161,7 @@ const prompt = require("prompt-sync")();
 // }
 // console.log(filterEmployesBySalaire);
 
-// Créer une fonction cloner(obj) qui retourne une copie de l’objet donné.
+// Créer une fonction cloner(obj) qui retourne une copie de l'objet donné.
 
 // const data = {
 //   nom: "Akram",
