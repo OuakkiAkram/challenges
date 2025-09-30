@@ -10,7 +10,7 @@ const displayConsole = () => {
   console.log("5.Supprimer une tâche");
   console.log("6.Marquer une tâche comme terminée");
   console.log("7.Afficher tâches terminées/en attente");
-  console.log("8.Quitter");
+  console.log("0.Quitter");
   console.log("==============================================");
   console.log("\n");
 };
@@ -79,7 +79,7 @@ const modifierTache = (id, newDescription) => {
   }
 };
 
-const statusTache = (idStatus, status) => {
+const statusTache = (idStatus) => {
   for (let i = 0; i < taches.length; i++) {
     if (taches[i].id === idStatus) {
       taches[i].status = true;
@@ -107,6 +107,14 @@ const afficherTacheAttente = () => {
   return newArr;
 };
 
+const searchByID = (id) => {
+  for (let i = 0; i < taches.length; i++) {
+    if (taches[i].id == id) {
+      return true;
+    }
+  }
+};
+
 while (true) {
   displayConsole();
   const choixOption = prompt("Choisissez une option: ");
@@ -125,26 +133,38 @@ while (true) {
         "Donner le titre de la tâche que vous voulez chercher: "
       );
       let data = rechercherTache(searchByTitle);
-      console.log("\n");
-      console.log(`Donnée de la tâche dont le titre est ${searchByTitle}`);
-      console.log(`ID: ${data.id + 1}`);
-      console.log(`Title: ${data.title}`);
-      console.log(`Description: ${data.description}\n`);
+      if (data) {
+        console.log("\n");
+        console.log(`ID: ${data.id + 1}`);
+        console.log(`Title: ${data.title}`);
+        console.log(`Description: ${data.description}\n`);
+      } else {
+        console.log("Title Undefined!");
+      }
       break;
 
     case "4":
       const id = parseInt(
         prompt("Donner l'ID de la tâche que vous voulez modifier: ")
       );
-      const description = prompt("Donner la nouvelle description: ");
-      modifierTache(id, description);
+      if (searchByID(id)) {
+        const description = prompt("Donner la nouvelle description: ");
+        modifierTache(id, description);
+      } else {
+        console.log("ID undefined!");
+      }
+
       break;
 
     case "5":
       const idTache = parseInt(
         prompt("Donner l'ID de la tâche que vous voulez supprimer: ")
       );
-      supprimerTache(idTache);
+      if (searchByID(idTache)) {
+        supprimerTache(idTache);
+      } else {
+        console.log("ID undefined!");
+      }
       break;
 
     case "6":
@@ -154,8 +174,12 @@ while (true) {
           "Donner l'ID de la tâche que vous voulez marquez comme terminée: "
         )
       );
+      if (searchByID(idTacheStatus)) {
+        statusTache(idTacheStatus);
+      } else {
+        console.log("ID undefined!");
+      }
 
-      statusTache(idTacheStatus);
       break;
 
     case "7":
@@ -169,7 +193,7 @@ while (true) {
           console.log(`Description: ${taches[i].description}\n`);
         }
       } else {
-        console.log("VIDE!");
+        console.log("VIDE!\n");
       }
 
       console.log("Les tâches en attente: ");
